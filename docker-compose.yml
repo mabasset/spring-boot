@@ -1,0 +1,15 @@
+services:
+  spring:
+    pull_policy: never
+    build:
+      context: ./spring
+      args:
+        - U_NAME=${U_NAME}
+        - U_PASS=${U_PASS}
+        - U_ID=${U_ID}
+    image: swam-spring
+    container_name: swam-spring
+    network_mode: "host"
+    volumes:
+      - ./spring/app:/app/
+    command: tail -f /dev/null
